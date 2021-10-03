@@ -5,7 +5,6 @@ import { NotImplementedError } from '../extensions/index.js';
  * 
  */
 
-// const chainMaker = {
 export default {
   links: [],
   getLength() {
@@ -39,6 +38,3 @@ export default {
     return toString;    
   }
 };
-
-// let chain = chainMaker;
-// chainMaker.addLink('GHI').addLink(null).reverseChain().addLink(333).reverseChain().reverseChain().addLink(0).reverseChain().reverseChain().addLink('GHI').finishChain();
