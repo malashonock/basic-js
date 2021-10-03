@@ -15,7 +15,33 @@ import { NotImplementedError } from '../extensions/index.js';
  * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
  *
  */
-export default function repeater(/* str, options */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function repeater(str, options) {
+  // default options
+  const props = {
+    repeatTimes: 1,
+    separator: '+',
+    addition: '',
+    additionRepeatTimes: 1,
+    additionSeparator: '|',
+  }
+
+  // override default options 
+  if (options) {
+    for (const prop in props) {
+      if (Object.hasOwnProperty.call(options, prop)) {
+        props[prop] = options[prop];
+      }
+    }
+  }
+
+  // do main task
+  const repeatedAddition = Array(props.additionRepeatTimes)
+    .fill(props.addition)
+    .reduce((prev, curr) => prev + props.additionSeparator + curr);
+
+  const repeatedMainStr = Array(props.repeatTimes)
+    .fill(str + repeatedAddition)
+    .reduce((prev, curr) => prev + props.separator + curr);
+    
+  return repeatedMainStr;
 }
