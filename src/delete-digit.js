@@ -12,13 +12,18 @@ const { NotImplementedError } = require("../extensions/index.js");
  *
  */
 function deleteDigit(n) {
-  const digits = n
-    .toString()
-    .split("")
-    .map((char) => Number.parseInt(char));
-  const minDigit = Math.min(...digits);
-  digits.splice(digits.indexOf(minDigit), 1);
-  return Number.parseInt(digits.map((digit) => digit.toString()).join(""));
+  let max = 0;
+
+  for (let index = 0; index < n.length; index++) {
+    const reducedStr = n.substring(0, index) + n.substring(index + 1);
+    const reducedNum = Number.parseInt(reducedStr);
+
+    if (reducedNum > max) {
+      max = reducedNum;
+    }
+  }
+
+  return max;
 }
 
 module.exports = {
