@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+const { NotImplementedError } = require("../extensions/index.js");
 
 /**
  * There's a list of file, since two files cannot have equal names,
@@ -15,8 +15,8 @@ import { NotImplementedError } from '../extensions/index.js';
  * the output should be ["file", "file(1)", "image", "file(1)(1)", "file(2)"]
  *
  */
-export default function renameFiles(names) {
-// function renameFiles(names) {
+function renameFiles(names) {
+  // function renameFiles(names) {
   const nameCounts = {};
   const renamed = [];
 
@@ -35,4 +35,6 @@ export default function renameFiles(names) {
   return renamed;
 }
 
-// renameFiles(['doc', 'doc', 'image', 'doc(1)', 'doc']);
+module.exports = {
+  renameFiles,
+};
