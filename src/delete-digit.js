@@ -12,10 +12,11 @@ const { NotImplementedError } = require("../extensions/index.js");
  *
  */
 function deleteDigit(n) {
+  const str = n.toString();
   let max = 0;
 
-  for (let index = 0; index < n.length; index++) {
-    const reducedStr = n.substring(0, index) + n.substring(index + 1);
+  for (let index = 0; index < str.length; index++) {
+    const reducedStr = str.substring(0, index) + str.substring(index + 1);
     const reducedNum = Number.parseInt(reducedStr);
 
     if (reducedNum > max) {
