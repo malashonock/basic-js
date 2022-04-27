@@ -1,12 +1,12 @@
-import { NotImplementedError } from '../extensions/index.js';
+const { NotImplementedError } = require("../extensions/index.js");
 
 /**
  * Implement chainMaker object according to task description
- * 
+ *
  */
-
-export default {
+const chainMaker = {
   links: [],
+
   getLength() {
     return this.links.length;
   },
@@ -15,11 +15,9 @@ export default {
     return this;
   },
   removeLink(position) {
-    if (isNaN(position) 
-      || position < 1
-      || position > this.links.length) {
+    if (isNaN(position) || position < 1 || position > this.links.length) {
       this.links = [];
-      throw new Error('You can\'t remove incorrect link!');
+      throw new Error("You can't remove incorrect link!");
     }
 
     this.links.splice(position - 1, 1);
@@ -31,10 +29,14 @@ export default {
   },
   finishChain() {
     const toString = this.links
-      .map(linkValue => `( ${linkValue} )`)
-      .join('~~');
+      .map((linkValue) => `( ${linkValue} )`)
+      .join("~~");
 
     this.links = [];
-    return toString;    
-  }
+    return toString;
+  },
+};
+
+module.exports = {
+  chainMaker,
 };

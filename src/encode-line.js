@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+const { NotImplementedError } = require("../extensions/index.js");
 
 /**
  * Given a string, return its encoding version.
@@ -10,17 +10,17 @@ import { NotImplementedError } from '../extensions/index.js';
  * For aabbbc should return 2a3bc
  *
  */
-export default function encodeLine(str) {
+function encodeLine(str) {
   let strCopy = str.substring(0);
-  let encoded = '';
+  let encoded = "";
 
   while (strCopy) {
     let char = strCopy.charAt(0);
     let regexp = new RegExp(`^(${char}+)`);
     let match = regexp.exec(strCopy);
     let charCount = match[1].length;
-    strCopy = strCopy.replace(regexp, '');
-    
+    strCopy = strCopy.replace(regexp, "");
+
     if (charCount > 1) {
       encoded += `${charCount}${char}`;
     } else {
@@ -30,3 +30,7 @@ export default function encodeLine(str) {
 
   return encoded;
 }
+
+module.exports = {
+  encodeLine,
+};
