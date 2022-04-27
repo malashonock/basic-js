@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import { testOptional } from '../extensions/index.js';
-import getCommonCharacterCount from '../src/st-common-character-count.js';
+import getCommonCharacterCount from '../src/common-character-count.js';
 
 it.optional = testOptional;
 

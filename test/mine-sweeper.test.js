@@ -1,13 +1,13 @@
-import { assert } from 'chai';
-import { testOptional } from '../extensions/index.js';
-import minesweeper from '../src/st-mine-sweeper.js';
+import { assert } from "chai";
+import { testOptional } from "../extensions/index.js";
+import minesweeper from "../src/mine-sweeper.js";
 
 it.optional = testOptional;
 
 Object.freeze(assert);
 
-describe('st-mine-sweeper', () => {
-  it.optional('should return minesweeper game setup', () => {
+describe("st-mine-sweeper", () => {
+  it.optional("should return minesweeper game setup", () => {
     assert.deepEqual(
       minesweeper([
         [true, false, false],
@@ -18,7 +18,7 @@ describe('st-mine-sweeper', () => {
         [1, 2, 1],
         [2, 1, 1],
         [1, 1, 1],
-      ],
+      ]
     );
 
     assert.deepEqual(
@@ -29,7 +29,7 @@ describe('st-mine-sweeper', () => {
       [
         [0, 0, 0],
         [0, 0, 0],
-      ],
+      ]
     );
   });
 });
